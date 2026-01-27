@@ -480,11 +480,43 @@ class UIManager {
             // Update rating
             document.getElementById('gm-rating').textContent = rating;
 
+            // Handle claim codes based on rating
+            this.displayClaimCode(rating);
+
             // Render decision path
             this.renderDecisionPath(state.decisions);
         });
 
         this.currentScreen = 'results';
+    }
+
+    // Display claim code based on GM rating
+    displayClaimCode(rating) {
+        const claimCodeSection = document.getElementById('claim-code-section');
+        const claimCodeDisplay = document.getElementById('claim-code-display');
+
+        if (!claimCodeSection || !claimCodeDisplay) return;
+
+        let claimCode = null;
+
+        // A rating: Premium claim code
+        if (rating === 'A+' || rating === 'A' || rating === 'A-') {
+            claimCode = 'NBA-ELITE-GM-2026';
+        }
+        // B-C rating: Standard claim code
+        else if (rating === 'B+' || rating === 'B' || rating === 'B-' ||
+                 rating === 'C+' || rating === 'C' || rating === 'C-') {
+            claimCode = 'NBA-RISING-STAR-2026';
+        }
+        // D or F rating: No claim code
+        else {
+            claimCodeSection.style.display = 'none';
+            return;
+        }
+
+        // Display the claim code
+        claimCodeDisplay.textContent = claimCode;
+        claimCodeSection.style.display = 'block';
     }
 
     // Render the decision path visualization
