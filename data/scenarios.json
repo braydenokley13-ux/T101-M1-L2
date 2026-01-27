@@ -1,0 +1,1396 @@
+{
+  "teams": {
+    "lakers": {
+      "intro": {
+        "title": "Welcome to Los Angeles",
+        "description": "You've been hired as GM of the Los Angeles Lakers. LeBron James is 41 but still elite. Anthony Davis anchors the defense. The franchise expects nothing less than a championship. Your current payroll is $138M—already over the $136M cap. Every move matters.",
+        "context": "The Lakers' championship window is closing. LeBron's contract expires next year. Do you mortgage the future for one more ring, or start planning the post-LeBron era?"
+      },
+      "rounds": [
+        {
+          "id": "lakers_r1",
+          "round": 1,
+          "title": "Opening Day Decision",
+          "description": "Training camp begins. Your front office presents three paths to improve the roster. The pressure from ownership is immense—they want another banner.",
+          "choices": [
+            {
+              "id": "lakers_r1_star",
+              "type": "star",
+              "title": "Sign a Star",
+              "player": "paul_george",
+              "description": "Paul George is available! The former All-Star would give you a lethal Big 3. But at $42M, you're deep into luxury tax territory.",
+              "costBreakdown": "Salary: $42M | Tax Impact: ~$15M",
+              "winChange": 4,
+              "salaryChange": 42000000,
+              "riskLevel": "high",
+              "consequence": "Your payroll explodes to $180M. Ownership grumbles but approves—they want a ring.",
+              "nextScenario": "lakers_r2_star"
+            },
+            {
+              "id": "lakers_r1_depth",
+              "type": "depth",
+              "title": "Add Veteran Depth",
+              "player": "marcus_smart",
+              "description": "Marcus Smart brings championship experience and elite defense. At $14.5M, it's a smart investment that keeps tax manageable.",
+              "costBreakdown": "Salary: $14.5M | Tax Impact: ~$5M",
+              "winChange": 2,
+              "salaryChange": 14500000,
+              "riskLevel": "medium",
+              "consequence": "Smart immediately becomes a locker room leader. The defense improves noticeably.",
+              "nextScenario": "lakers_r2_depth"
+            },
+            {
+              "id": "lakers_r1_rookie",
+              "type": "rookie",
+              "title": "Develop Young Talent",
+              "player": "dalton_knecht",
+              "description": "Invest in Dalton Knecht and Bronny James. They're already on rookie deals—just give them more minutes and development focus.",
+              "costBreakdown": "No new salary | Development investment",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Knecht starts hitting threes. The future looks brighter, but is it enough for now?",
+              "nextScenario": "lakers_r2_rookie"
+            }
+          ]
+        },
+        {
+          "id": "lakers_r2_star",
+          "round": 2,
+          "title": "Luxury Tax Crisis",
+          "description": "The Big 3 is dominant, but your $180M payroll has triggered massive luxury tax. Ownership demands you find savings.",
+          "choices": [
+            {
+              "id": "lakers_r2_star_cut",
+              "type": "salary_cut",
+              "title": "Trade D'Angelo Russell",
+              "description": "Russell's $19M comes off the books. You lose some playmaking but gain financial relief.",
+              "costBreakdown": "Save: $19M salary + tax",
+              "winChange": -1,
+              "salaryChange": -19000000,
+              "riskLevel": "medium",
+              "consequence": "The trade goes through. Your rotation is thinner but the tax bill shrinks.",
+              "nextScenario": "lakers_r3_balanced"
+            },
+            {
+              "id": "lakers_r2_star_stay",
+              "type": "stay_course",
+              "title": "Keep the Core Together",
+              "description": "Convince ownership this is a championship roster. Pay the tax and compete.",
+              "costBreakdown": "Full tax bill: ~$25M",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "high",
+              "consequence": "Ownership reluctantly agrees. The team chemistry improves with continuity.",
+              "nextScenario": "lakers_r3_allIn"
+            },
+            {
+              "id": "lakers_r2_star_boost",
+              "type": "coach_boost",
+              "title": "Hire Elite Assistant Coach",
+              "description": "Bring in a defensive specialist. No salary cap impact but costs $2M against budget.",
+              "costBreakdown": "Budget: +$2M",
+              "winChange": 2,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "The defense transforms. Your Big 3 can focus on offense.",
+              "nextScenario": "lakers_r3_balanced"
+            }
+          ]
+        },
+        {
+          "id": "lakers_r2_depth",
+          "round": 2,
+          "title": "Mid-Season Opportunity",
+          "description": "You're competitive but need another piece. A trade opportunity arises—DeMar DeRozan is available.",
+          "choices": [
+            {
+              "id": "lakers_r2_depth_derozan",
+              "type": "star",
+              "title": "Acquire DeRozan",
+              "player": "demar_derozan",
+              "description": "DeRozan's mid-range game would be lethal alongside LeBron. At $25M, the tax hit is significant.",
+              "costBreakdown": "Salary: $25M | Tax Impact: ~$12M",
+              "winChange": 3,
+              "salaryChange": 25000000,
+              "riskLevel": "high",
+              "consequence": "DeRozan-LeBron pick and roll is unstoppable. The tax bill grows.",
+              "nextScenario": "lakers_r3_allIn"
+            },
+            {
+              "id": "lakers_r2_depth_monk",
+              "type": "depth",
+              "title": "Add Malik Monk",
+              "player": "malik_monk",
+              "description": "Monk provides instant offense off the bench. At $12M, it's a reasonable addition.",
+              "costBreakdown": "Salary: $12M | Tax Impact: ~$4M",
+              "winChange": 2,
+              "salaryChange": 12000000,
+              "riskLevel": "medium",
+              "consequence": "Monk's microwave scoring stabilizes the bench unit.",
+              "nextScenario": "lakers_r3_balanced"
+            },
+            {
+              "id": "lakers_r2_depth_internal",
+              "type": "rookie",
+              "title": "Promote from Within",
+              "description": "Give Dalton Knecht a bigger role. He's ready to contribute more.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Knecht exceeds expectations. The rookie shines under pressure.",
+              "nextScenario": "lakers_r3_conservative"
+            }
+          ]
+        },
+        {
+          "id": "lakers_r2_rookie",
+          "round": 2,
+          "title": "Rookie Development Progress",
+          "description": "The young players are improving but the team is struggling. You need to decide how to proceed.",
+          "choices": [
+            {
+              "id": "lakers_r2_rookie_star",
+              "type": "star",
+              "title": "Make a Splash Signing",
+              "player": "jimmy_butler",
+              "description": "Jimmy Butler becomes available! His playoff experience could push you over the top.",
+              "costBreakdown": "Salary: $46M | Tax Impact: ~$20M",
+              "winChange": 4,
+              "salaryChange": 46000000,
+              "riskLevel": "high",
+              "consequence": "Butler's intensity transforms the team. But the budget is stretched thin.",
+              "nextScenario": "lakers_r3_allIn"
+            },
+            {
+              "id": "lakers_r2_rookie_depth",
+              "type": "depth",
+              "title": "Add Proven Veterans",
+              "player": "bruce_brown",
+              "description": "Bruce Brown brings playoff experience and versatility at $11M.",
+              "costBreakdown": "Salary: $11M | Tax Impact: ~$3M",
+              "winChange": 2,
+              "salaryChange": 11000000,
+              "riskLevel": "medium",
+              "consequence": "Brown's defense and hustle provides stability.",
+              "nextScenario": "lakers_r3_balanced"
+            },
+            {
+              "id": "lakers_r2_rookie_continue",
+              "type": "rookie",
+              "title": "Trust the Process",
+              "description": "Keep developing the young core. Bronny and Knecht are growing weekly.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "The young players continue to improve. It's a marathon, not a sprint.",
+              "nextScenario": "lakers_r3_conservative"
+            }
+          ]
+        },
+        {
+          "id": "lakers_r3_allIn",
+          "round": 3,
+          "title": "All-In for the Championship",
+          "description": "Your star-studded roster is dominant but expensive. The All-Star break approaches.",
+          "choices": [
+            {
+              "id": "lakers_r3_allIn_buyout",
+              "type": "depth",
+              "title": "Sign Buyout Market Player",
+              "description": "Chris Paul is bought out and wants to compete for a ring. Minimum salary.",
+              "costBreakdown": "Salary: $2M minimum",
+              "winChange": 2,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "CP3's leadership and playmaking adds another dimension.",
+              "nextScenario": "lakers_r4_contender"
+            },
+            {
+              "id": "lakers_r3_allIn_rest",
+              "type": "strategy",
+              "title": "Load Management",
+              "description": "Rest your stars for the playoffs. Accept fewer regular season wins.",
+              "costBreakdown": "No financial impact",
+              "winChange": -1,
+              "salaryChange": 0,
+              "riskLevel": "medium",
+              "consequence": "The stars are fresh for the playoffs. Regular season record suffers slightly.",
+              "nextScenario": "lakers_r4_contender"
+            },
+            {
+              "id": "lakers_r3_allIn_push",
+              "type": "star",
+              "title": "Push for Home Court",
+              "description": "Maximize minutes for your stars. Chase the 1-seed.",
+              "costBreakdown": "No financial impact | Injury risk",
+              "winChange": 3,
+              "salaryChange": 0,
+              "riskLevel": "high",
+              "consequence": "The team surges in the standings but fatigue becomes a concern.",
+              "nextScenario": "lakers_r4_contender"
+            }
+          ]
+        },
+        {
+          "id": "lakers_r3_balanced",
+          "round": 3,
+          "title": "Finding Balance",
+          "description": "Your roster is competitive and your finances are manageable. Time to fine-tune.",
+          "choices": [
+            {
+              "id": "lakers_r3_balanced_upgrade",
+              "type": "depth",
+              "title": "Make a Minor Upgrade",
+              "player": "bogdan_bogdanovic",
+              "description": "Bogdan Bogdanović is available. His shooting would help.",
+              "costBreakdown": "Salary: $16.5M",
+              "winChange": 2,
+              "salaryChange": 16500000,
+              "riskLevel": "medium",
+              "consequence": "Bogdanović immediately helps spacing.",
+              "nextScenario": "lakers_r4_balanced"
+            },
+            {
+              "id": "lakers_r3_balanced_youth",
+              "type": "rookie",
+              "title": "Play the Young Guys",
+              "description": "Give more minutes to Knecht and the young players.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "The young players gain valuable experience.",
+              "nextScenario": "lakers_r4_balanced"
+            },
+            {
+              "id": "lakers_r3_balanced_hold",
+              "type": "strategy",
+              "title": "Stand Pat",
+              "description": "The roster is good enough. Focus on chemistry and health.",
+              "costBreakdown": "No changes",
+              "winChange": 0,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "The team gels together. Chemistry improves.",
+              "nextScenario": "lakers_r4_balanced"
+            }
+          ]
+        },
+        {
+          "id": "lakers_r3_conservative",
+          "round": 3,
+          "title": "The Rebuild Question",
+          "description": "Your young core is developing but the team is bubble territory. A crossroads decision.",
+          "choices": [
+            {
+              "id": "lakers_r3_conservative_pivot",
+              "type": "star",
+              "title": "Pivot to Win-Now",
+              "player": "bradley_beal",
+              "description": "Bradley Beal is available at a reduced salary. One last push with LeBron.",
+              "costBreakdown": "Salary: $46M",
+              "winChange": 3,
+              "salaryChange": 46000000,
+              "riskLevel": "high",
+              "consequence": "Beal joins the Lakers. It's all-in time.",
+              "nextScenario": "lakers_r4_balanced"
+            },
+            {
+              "id": "lakers_r3_conservative_stay",
+              "type": "depth",
+              "title": "Add Reasonable Depth",
+              "description": "Sign some veterans on team-friendly deals.",
+              "costBreakdown": "Salary: $8M total",
+              "winChange": 2,
+              "salaryChange": 8000000,
+              "riskLevel": "low",
+              "consequence": "Experienced veterans stabilize the rotation.",
+              "nextScenario": "lakers_r4_conservative"
+            },
+            {
+              "id": "lakers_r3_conservative_youth",
+              "type": "rookie",
+              "title": "Fully Commit to Youth",
+              "description": "This is a development year. Build for the future.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "The young players thrive with increased responsibility.",
+              "nextScenario": "lakers_r4_conservative"
+            }
+          ]
+        },
+        {
+          "id": "lakers_r4_contender",
+          "round": 4,
+          "title": "Playoff Push",
+          "description": "The playoff race heats up. Your championship-caliber roster is ready. Final adjustments needed.",
+          "choices": [
+            {
+              "id": "lakers_r4_contender_all",
+              "type": "star",
+              "title": "Add Insurance Piece",
+              "description": "Sign a veteran minimum player as playoff insurance.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 1,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "Extra depth for the playoff run.",
+              "nextScenario": "lakers_final"
+            },
+            {
+              "id": "lakers_r4_contender_focus",
+              "type": "strategy",
+              "title": "Focus on Chemistry",
+              "description": "No more moves. Let the team gel.",
+              "costBreakdown": "No changes",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "The team's chemistry reaches its peak.",
+              "nextScenario": "lakers_final"
+            }
+          ]
+        },
+        {
+          "id": "lakers_r4_balanced",
+          "round": 4,
+          "title": "Closing Stretch",
+          "description": "Your balanced approach has the Lakers in playoff position. Final push time.",
+          "choices": [
+            {
+              "id": "lakers_r4_balanced_push",
+              "type": "depth",
+              "title": "Small Upgrade",
+              "description": "Add a minimum salary player for depth.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 1,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "Extra bodies for the stretch run.",
+              "nextScenario": "lakers_final"
+            },
+            {
+              "id": "lakers_r4_balanced_hold",
+              "type": "strategy",
+              "title": "Trust Your Roster",
+              "description": "The roster is set. Focus on execution.",
+              "costBreakdown": "No changes",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "The team executes down the stretch.",
+              "nextScenario": "lakers_final"
+            }
+          ]
+        },
+        {
+          "id": "lakers_r4_conservative",
+          "round": 4,
+          "title": "Play-In Push",
+          "description": "Your young team is fighting for a play-in spot. Every game matters.",
+          "choices": [
+            {
+              "id": "lakers_r4_conservative_all",
+              "type": "depth",
+              "title": "Add Veteran Leadership",
+              "description": "Sign a veteran minimum player to mentor the young guys.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 2,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "The veteran's presence steadies the young roster.",
+              "nextScenario": "lakers_final"
+            },
+            {
+              "id": "lakers_r4_conservative_youth",
+              "type": "rookie",
+              "title": "Ride or Die with Youth",
+              "description": "The young players got you here. Trust them.",
+              "costBreakdown": "No changes",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "medium",
+              "consequence": "The young players rise to the occasion.",
+              "nextScenario": "lakers_final"
+            }
+          ]
+        }
+      ]
+    },
+
+    "bucks": {
+      "intro": {
+        "title": "Welcome to Milwaukee",
+        "description": "You're the new GM of the Milwaukee Bucks. Giannis Antetokounmpo is in his prime—a two-time MVP who demands championships. Damian Lillard provides elite scoring. Your payroll is $134M. The championship window is NOW.",
+        "context": "The Bucks have the superstar. They have the second star. But the supporting cast and depth need work. Can you build a championship roster without breaking the bank?"
+      },
+      "rounds": [
+        {
+          "id": "bucks_r1",
+          "round": 1,
+          "title": "Building Around Giannis",
+          "description": "Giannis is clear: he wants to win NOW. Your front office presents options to strengthen the roster.",
+          "choices": [
+            {
+              "id": "bucks_r1_star",
+              "type": "star",
+              "title": "Add Another Star",
+              "player": "paul_george",
+              "description": "Paul George would create a Big 3 with Giannis and Dame. At $42M, the luxury tax becomes significant.",
+              "costBreakdown": "Salary: $42M | Tax Impact: ~$18M",
+              "winChange": 4,
+              "salaryChange": 42000000,
+              "riskLevel": "high",
+              "consequence": "A legitimate Big 3 forms. Championship expectations skyrocket.",
+              "nextScenario": "bucks_r2_star"
+            },
+            {
+              "id": "bucks_r1_depth",
+              "type": "depth",
+              "title": "Strengthen the Bench",
+              "player": "malik_monk",
+              "description": "Malik Monk's instant offense would give you elite bench scoring. At $12M, it's reasonable.",
+              "costBreakdown": "Salary: $12M | Tax Impact: ~$4M",
+              "winChange": 2,
+              "salaryChange": 12000000,
+              "riskLevel": "medium",
+              "consequence": "The second unit improves significantly.",
+              "nextScenario": "bucks_r2_depth"
+            },
+            {
+              "id": "bucks_r1_rookie",
+              "type": "rookie",
+              "title": "Develop AJ Johnson",
+              "player": "aj_johnson",
+              "description": "Give rookie AJ Johnson significant minutes. He's shown flashes of being a future starter.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Johnson develops quickly with increased responsibility.",
+              "nextScenario": "bucks_r2_rookie"
+            }
+          ]
+        },
+        {
+          "id": "bucks_r2_star",
+          "round": 2,
+          "title": "Managing the Big 3",
+          "description": "Your superteam is dominant but expensive. Luxury tax bills are mounting. Ownership wants solutions.",
+          "choices": [
+            {
+              "id": "bucks_r2_star_trade",
+              "type": "salary_cut",
+              "title": "Trade Khris Middleton",
+              "description": "Middleton's $32M contract is movable. Free up cap space and reduce tax.",
+              "costBreakdown": "Save: $32M salary + tax",
+              "winChange": -2,
+              "salaryChange": -32000000,
+              "riskLevel": "medium",
+              "consequence": "Middleton is gone. The team is more top-heavy but the finances are healthier.",
+              "nextScenario": "bucks_r3_leaner"
+            },
+            {
+              "id": "bucks_r2_star_stay",
+              "type": "stay_course",
+              "title": "Championship or Bust",
+              "description": "Pay the tax. This core is special. Ownership must invest.",
+              "costBreakdown": "Full tax bill: ~$30M",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "high",
+              "consequence": "Ownership grudgingly approves. The pressure is immense.",
+              "nextScenario": "bucks_r3_superteam"
+            },
+            {
+              "id": "bucks_r2_star_boost",
+              "type": "coach_boost",
+              "title": "Add Analytics Staff",
+              "description": "Hire elite analytics team to optimize rotations. Budget cost, no cap impact.",
+              "costBreakdown": "Budget: +$1.5M",
+              "winChange": 2,
+              "salaryChange": 1500000,
+              "riskLevel": "low",
+              "consequence": "Data-driven lineup optimization pays dividends.",
+              "nextScenario": "bucks_r3_balanced"
+            }
+          ]
+        },
+        {
+          "id": "bucks_r2_depth",
+          "round": 2,
+          "title": "Trade Deadline Buzz",
+          "description": "The Bucks are solid but need more firepower. DeMar DeRozan is available.",
+          "choices": [
+            {
+              "id": "bucks_r2_depth_derozan",
+              "type": "star",
+              "title": "Acquire DeRozan",
+              "player": "demar_derozan",
+              "description": "DeRozan would be lethal in the pick and roll with Giannis.",
+              "costBreakdown": "Salary: $25M | Tax Impact: ~$10M",
+              "winChange": 3,
+              "salaryChange": 25000000,
+              "riskLevel": "high",
+              "consequence": "DeRozan joins. The offense becomes elite.",
+              "nextScenario": "bucks_r3_balanced"
+            },
+            {
+              "id": "bucks_r2_depth_bruce",
+              "type": "depth",
+              "title": "Add Bruce Brown",
+              "player": "bruce_brown",
+              "description": "Brown's versatility and championship experience is valuable.",
+              "costBreakdown": "Salary: $11M | Tax Impact: ~$3M",
+              "winChange": 2,
+              "salaryChange": 11000000,
+              "riskLevel": "medium",
+              "consequence": "Brown provides reliable minutes across multiple positions.",
+              "nextScenario": "bucks_r3_balanced"
+            },
+            {
+              "id": "bucks_r2_depth_internal",
+              "type": "rookie",
+              "title": "Promote Andre Jackson Jr.",
+              "description": "Give the young wing a larger role. His defense is ready.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Jackson's energy and defense earn more minutes.",
+              "nextScenario": "bucks_r3_conservative"
+            }
+          ]
+        },
+        {
+          "id": "bucks_r2_rookie",
+          "round": 2,
+          "title": "Youth Movement Progress",
+          "description": "The young players are developing but the team needs help to compete now.",
+          "choices": [
+            {
+              "id": "bucks_r2_rookie_star",
+              "type": "star",
+              "title": "Sign Jimmy Butler",
+              "player": "jimmy_butler",
+              "description": "Butler's playoff intensity would transform this team.",
+              "costBreakdown": "Salary: $46M | Tax Impact: ~$20M",
+              "winChange": 4,
+              "salaryChange": 46000000,
+              "riskLevel": "high",
+              "consequence": "Butler brings his playoff mentality. Championships feel achievable.",
+              "nextScenario": "bucks_r3_superteam"
+            },
+            {
+              "id": "bucks_r2_rookie_depth",
+              "type": "depth",
+              "title": "Add Marcus Smart",
+              "player": "marcus_smart",
+              "description": "Smart's defense and leadership is exactly what the young players need.",
+              "costBreakdown": "Salary: $14.5M | Tax Impact: ~$5M",
+              "winChange": 2,
+              "salaryChange": 14500000,
+              "riskLevel": "medium",
+              "consequence": "Smart becomes a mentor and defensive anchor.",
+              "nextScenario": "bucks_r3_balanced"
+            },
+            {
+              "id": "bucks_r2_rookie_continue",
+              "type": "rookie",
+              "title": "Stay Patient",
+              "description": "Keep developing the young core. Trust the process.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "The young players continue to improve steadily.",
+              "nextScenario": "bucks_r3_conservative"
+            }
+          ]
+        },
+        {
+          "id": "bucks_r3_superteam",
+          "round": 3,
+          "title": "Superteam Pressure",
+          "description": "Your loaded roster is the league's most talented. But chemistry and health are concerns.",
+          "choices": [
+            {
+              "id": "bucks_r3_super_rest",
+              "type": "strategy",
+              "title": "Manage Minutes",
+              "description": "Rest stars strategically for the playoffs.",
+              "costBreakdown": "No financial impact",
+              "winChange": -1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Stars are fresh for playoffs despite lower seeding.",
+              "nextScenario": "bucks_r4_contender"
+            },
+            {
+              "id": "bucks_r3_super_push",
+              "type": "star",
+              "title": "Chase the 1 Seed",
+              "description": "Maximize the regular season. Home court matters.",
+              "costBreakdown": "No financial impact | Injury risk",
+              "winChange": 3,
+              "salaryChange": 0,
+              "riskLevel": "high",
+              "consequence": "The team dominates but fatigue accumulates.",
+              "nextScenario": "bucks_r4_contender"
+            },
+            {
+              "id": "bucks_r3_super_depth",
+              "type": "depth",
+              "title": "Add Buyout Player",
+              "description": "Sign a veteran minimum player as insurance.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 1,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "Extra depth for the playoff push.",
+              "nextScenario": "bucks_r4_contender"
+            }
+          ]
+        },
+        {
+          "id": "bucks_r3_balanced",
+          "round": 3,
+          "title": "Solid Position",
+          "description": "Your roster is strong and finances are reasonable. Time to optimize.",
+          "choices": [
+            {
+              "id": "bucks_r3_balanced_upgrade",
+              "type": "depth",
+              "title": "Minor Trade",
+              "player": "nic_claxton",
+              "description": "Nic Claxton would provide rim protection alongside Brook Lopez.",
+              "costBreakdown": "Salary: $22M",
+              "winChange": 2,
+              "salaryChange": 22000000,
+              "riskLevel": "medium",
+              "consequence": "Twin towers! The defense becomes elite.",
+              "nextScenario": "bucks_r4_balanced"
+            },
+            {
+              "id": "bucks_r3_balanced_youth",
+              "type": "rookie",
+              "title": "Trust the Young Players",
+              "description": "AJ Johnson and Andre Jackson are ready.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Young players gain confidence with playoff-caliber minutes.",
+              "nextScenario": "bucks_r4_balanced"
+            },
+            {
+              "id": "bucks_r3_balanced_hold",
+              "type": "strategy",
+              "title": "Stand Pat",
+              "description": "The roster is complete. Focus on execution.",
+              "costBreakdown": "No changes",
+              "winChange": 0,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Team chemistry reaches its peak.",
+              "nextScenario": "bucks_r4_balanced"
+            }
+          ]
+        },
+        {
+          "id": "bucks_r3_leaner",
+          "round": 3,
+          "title": "Post-Trade Adjustment",
+          "description": "After trading Middleton, you have cap flexibility but a thinner roster.",
+          "choices": [
+            {
+              "id": "bucks_r3_leaner_fill",
+              "type": "depth",
+              "title": "Fill the Void",
+              "player": "bogdan_bogdanovic",
+              "description": "Bogdanović's shooting would help replace Middleton's scoring.",
+              "costBreakdown": "Salary: $16.5M",
+              "winChange": 2,
+              "salaryChange": 16500000,
+              "riskLevel": "medium",
+              "consequence": "Bogdanović provides floor spacing.",
+              "nextScenario": "bucks_r4_balanced"
+            },
+            {
+              "id": "bucks_r3_leaner_young",
+              "type": "rookie",
+              "title": "Promote Youth",
+              "description": "Give the young wings a chance to shine.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "medium",
+              "consequence": "Young players step up admirably.",
+              "nextScenario": "bucks_r4_conservative"
+            },
+            {
+              "id": "bucks_r3_leaner_multiple",
+              "type": "depth",
+              "title": "Sign Multiple Veterans",
+              "description": "Add three veteran minimum players for depth.",
+              "costBreakdown": "Salary: $6M total",
+              "winChange": 2,
+              "salaryChange": 6000000,
+              "riskLevel": "low",
+              "consequence": "Experienced players fill the rotation gaps.",
+              "nextScenario": "bucks_r4_balanced"
+            }
+          ]
+        },
+        {
+          "id": "bucks_r3_conservative",
+          "round": 3,
+          "title": "Development Focus",
+          "description": "Your young core is growing but the team is fighting for playoff position.",
+          "choices": [
+            {
+              "id": "bucks_r3_conservative_push",
+              "type": "star",
+              "title": "Make a Move",
+              "player": "demar_derozan",
+              "description": "It's Giannis's prime. Add DeRozan and compete.",
+              "costBreakdown": "Salary: $25M",
+              "winChange": 3,
+              "salaryChange": 25000000,
+              "riskLevel": "high",
+              "consequence": "DeRozan elevates the offense immediately.",
+              "nextScenario": "bucks_r4_balanced"
+            },
+            {
+              "id": "bucks_r3_conservative_depth",
+              "type": "depth",
+              "title": "Add Solid Veteran",
+              "description": "Sign experienced players on reasonable deals.",
+              "costBreakdown": "Salary: $10M total",
+              "winChange": 2,
+              "salaryChange": 10000000,
+              "riskLevel": "low",
+              "consequence": "Veterans provide stability and mentorship.",
+              "nextScenario": "bucks_r4_conservative"
+            },
+            {
+              "id": "bucks_r3_conservative_trust",
+              "type": "rookie",
+              "title": "Trust the Kids",
+              "description": "The young players are ready. Let them play.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "medium",
+              "consequence": "Young players exceed expectations down the stretch.",
+              "nextScenario": "bucks_r4_conservative"
+            }
+          ]
+        },
+        {
+          "id": "bucks_r4_contender",
+          "round": 4,
+          "title": "Championship Chase",
+          "description": "Your superteam is locked in for the playoffs. Final preparations.",
+          "choices": [
+            {
+              "id": "bucks_r4_contender_vet",
+              "type": "depth",
+              "title": "Add Playoff Experience",
+              "description": "Sign a veteran minimum player with rings.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 1,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "Championship experience in the locker room.",
+              "nextScenario": "bucks_final"
+            },
+            {
+              "id": "bucks_r4_contender_gel",
+              "type": "strategy",
+              "title": "Focus on Chemistry",
+              "description": "No more moves. Let the team gel.",
+              "costBreakdown": "No changes",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Peak chemistry heading into playoffs.",
+              "nextScenario": "bucks_final"
+            }
+          ]
+        },
+        {
+          "id": "bucks_r4_balanced",
+          "round": 4,
+          "title": "Playoff Push",
+          "description": "Your balanced roster is competing for a top seed. Final stretch.",
+          "choices": [
+            {
+              "id": "bucks_r4_balanced_add",
+              "type": "depth",
+              "title": "Add Depth Piece",
+              "description": "Sign a minimum salary player.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 1,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "Extra insurance for the playoffs.",
+              "nextScenario": "bucks_final"
+            },
+            {
+              "id": "bucks_r4_balanced_hold",
+              "type": "strategy",
+              "title": "Stay the Course",
+              "description": "The roster is complete.",
+              "costBreakdown": "No changes",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Team executes down the stretch.",
+              "nextScenario": "bucks_final"
+            }
+          ]
+        },
+        {
+          "id": "bucks_r4_conservative",
+          "round": 4,
+          "title": "Playoff Fight",
+          "description": "Your young-ish team is battling for a playoff spot.",
+          "choices": [
+            {
+              "id": "bucks_r4_conservative_add",
+              "type": "depth",
+              "title": "Add Veteran Presence",
+              "description": "Sign an experienced player for the stretch run.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 2,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "Veteran leadership down the stretch.",
+              "nextScenario": "bucks_final"
+            },
+            {
+              "id": "bucks_r4_conservative_youth",
+              "type": "rookie",
+              "title": "Let Youth Lead",
+              "description": "Trust the young players to deliver.",
+              "costBreakdown": "No changes",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "medium",
+              "consequence": "Young players rise to the moment.",
+              "nextScenario": "bucks_final"
+            }
+          ]
+        }
+      ]
+    },
+
+    "spurs": {
+      "intro": {
+        "title": "Welcome to San Antonio",
+        "description": "You're the GM of the San Antonio Spurs. Victor Wembanyama is a generational talent—at 21, he's already one of the league's best defenders and a budding offensive force. Your payroll is just $98M, giving you massive cap flexibility. The question: accelerate or build patiently?",
+        "context": "The Spurs' rebuild is ahead of schedule thanks to Wembanyama. With cap space to spare, you can chase stars now or continue developing the young core for sustained success."
+      },
+      "rounds": [
+        {
+          "id": "spurs_r1",
+          "round": 1,
+          "title": "The Wembanyama Era Begins",
+          "description": "Victor is ready to lead, but he needs help. Your front office presents three philosophies for building around him.",
+          "choices": [
+            {
+              "id": "spurs_r1_star",
+              "type": "star",
+              "title": "Accelerate the Timeline",
+              "player": "paul_george",
+              "description": "Paul George would give Wemby an All-Star running mate immediately. At $42M, you have the cap space.",
+              "costBreakdown": "Salary: $42M | Still under cap!",
+              "winChange": 4,
+              "salaryChange": 42000000,
+              "riskLevel": "high",
+              "consequence": "George joins! The Spurs are suddenly a playoff threat.",
+              "nextScenario": "spurs_r2_star"
+            },
+            {
+              "id": "spurs_r1_depth",
+              "type": "depth",
+              "title": "Add Veteran Mentorship",
+              "player": "chris_paul",
+              "description": "Chris Paul's leadership and playmaking would accelerate Wemby's development.",
+              "costBreakdown": "Salary: $11M | Great value",
+              "winChange": 2,
+              "salaryChange": 11000000,
+              "riskLevel": "medium",
+              "consequence": "CP3's mentorship immediately impacts the young core.",
+              "nextScenario": "spurs_r2_depth"
+            },
+            {
+              "id": "spurs_r1_rookie",
+              "type": "rookie",
+              "title": "Trust the Development",
+              "player": "stephon_castle",
+              "description": "Focus on Stephon Castle and the young core. Build through the draft.",
+              "costBreakdown": "No new salary",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Castle gets more minutes and thrives alongside Wemby.",
+              "nextScenario": "spurs_r2_rookie"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r2_star",
+          "round": 2,
+          "title": "Unexpected Success",
+          "description": "Wemby and PG are dominating! The team is exceeding expectations. Time to go all-in?",
+          "choices": [
+            {
+              "id": "spurs_r2_star_more",
+              "type": "star",
+              "title": "Add Another Piece",
+              "player": "demar_derozan",
+              "description": "DeRozan returning to San Antonio would be poetic justice. Big 3 time.",
+              "costBreakdown": "Salary: $25M | Tax territory!",
+              "winChange": 3,
+              "salaryChange": 25000000,
+              "riskLevel": "high",
+              "consequence": "DeRozan is BACK. The Spurs are championship contenders.",
+              "nextScenario": "spurs_r3_superteam"
+            },
+            {
+              "id": "spurs_r2_star_depth",
+              "type": "depth",
+              "title": "Shore Up the Bench",
+              "player": "bruce_brown",
+              "description": "Bruce Brown's versatility would help the rotation.",
+              "costBreakdown": "Salary: $11M",
+              "winChange": 2,
+              "salaryChange": 11000000,
+              "riskLevel": "medium",
+              "consequence": "Brown provides stability and playoff experience.",
+              "nextScenario": "spurs_r3_balanced"
+            },
+            {
+              "id": "spurs_r2_star_young",
+              "type": "rookie",
+              "title": "Keep Developing",
+              "description": "The young players need minutes too. Balance experience with development.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Young players continue to develop alongside the stars.",
+              "nextScenario": "spurs_r3_balanced"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r2_depth",
+          "round": 2,
+          "title": "CP3's Impact",
+          "description": "Chris Paul's mentorship is transforming the team. But is more help needed?",
+          "choices": [
+            {
+              "id": "spurs_r2_depth_star",
+              "type": "star",
+              "title": "Add a Star",
+              "player": "demar_derozan",
+              "description": "DeRozan to San Antonio reunion! His scoring would elevate the team.",
+              "costBreakdown": "Salary: $25M",
+              "winChange": 3,
+              "salaryChange": 25000000,
+              "riskLevel": "medium",
+              "consequence": "DeMar's homecoming! The offense improves significantly.",
+              "nextScenario": "spurs_r3_balanced"
+            },
+            {
+              "id": "spurs_r2_depth_more",
+              "type": "depth",
+              "title": "Add More Veterans",
+              "player": "marcus_smart",
+              "description": "Marcus Smart's defense would complement the young core.",
+              "costBreakdown": "Salary: $14.5M",
+              "winChange": 2,
+              "salaryChange": 14500000,
+              "riskLevel": "medium",
+              "consequence": "Smart's toughness rubs off on the young players.",
+              "nextScenario": "spurs_r3_balanced"
+            },
+            {
+              "id": "spurs_r2_depth_young",
+              "type": "rookie",
+              "title": "Let Youth Play",
+              "description": "Castle, Sochan, and the young core need consistent minutes.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "The young Spurs continue their rapid development.",
+              "nextScenario": "spurs_r3_conservative"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r2_rookie",
+          "round": 2,
+          "title": "Youth Movement",
+          "description": "The young core is developing beautifully, but wins are harder to come by.",
+          "choices": [
+            {
+              "id": "spurs_r2_rookie_star",
+              "type": "star",
+              "title": "Add Star Power",
+              "player": "jimmy_butler",
+              "description": "Jimmy Butler would bring instant credibility and playoff intensity.",
+              "costBreakdown": "Salary: $46M",
+              "winChange": 4,
+              "salaryChange": 46000000,
+              "riskLevel": "high",
+              "consequence": "Butler transforms the culture immediately.",
+              "nextScenario": "spurs_r3_balanced"
+            },
+            {
+              "id": "spurs_r2_rookie_depth",
+              "type": "depth",
+              "title": "Add Veteran Leaders",
+              "player": "chris_paul",
+              "description": "CP3 would mentor the young guards perfectly.",
+              "costBreakdown": "Salary: $11M",
+              "winChange": 2,
+              "salaryChange": 11000000,
+              "riskLevel": "low",
+              "consequence": "Chris Paul's leadership accelerates development.",
+              "nextScenario": "spurs_r3_conservative"
+            },
+            {
+              "id": "spurs_r2_rookie_continue",
+              "type": "rookie",
+              "title": "Pure Development",
+              "description": "Stay the course. This is a long-term project.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "The young core bonds through adversity.",
+              "nextScenario": "spurs_r3_youth"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r3_superteam",
+          "round": 3,
+          "title": "Championship Window Opens",
+          "description": "The Spurs are suddenly a top team! But expectations have skyrocketed.",
+          "choices": [
+            {
+              "id": "spurs_r3_super_add",
+              "type": "depth",
+              "title": "Add Final Pieces",
+              "description": "Sign veteran minimum players to fill out the rotation.",
+              "costBreakdown": "Salary: $4M total",
+              "winChange": 1,
+              "salaryChange": 4000000,
+              "riskLevel": "low",
+              "consequence": "Championship-caliber depth.",
+              "nextScenario": "spurs_r4_contender"
+            },
+            {
+              "id": "spurs_r3_super_young",
+              "type": "rookie",
+              "title": "Keep Young Rotation",
+              "description": "The young players earned their spots. Trust them.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "medium",
+              "consequence": "Castle and Sochan shine in big moments.",
+              "nextScenario": "spurs_r4_contender"
+            },
+            {
+              "id": "spurs_r3_super_rest",
+              "type": "strategy",
+              "title": "Manage for Playoffs",
+              "description": "Rest stars periodically. Fresh legs matter.",
+              "costBreakdown": "No changes",
+              "winChange": -1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Stars are rested for the playoff push.",
+              "nextScenario": "spurs_r4_contender"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r3_balanced",
+          "round": 3,
+          "title": "Playoff Push",
+          "description": "The Spurs are in the playoff hunt. Time to decide how to finish.",
+          "choices": [
+            {
+              "id": "spurs_r3_balanced_add",
+              "type": "depth",
+              "title": "Add Rotation Piece",
+              "player": "bogdan_bogdanovic",
+              "description": "Bogdanović's shooting would help in the playoffs.",
+              "costBreakdown": "Salary: $16.5M",
+              "winChange": 2,
+              "salaryChange": 16500000,
+              "riskLevel": "medium",
+              "consequence": "Shooting around Wemby improves spacing.",
+              "nextScenario": "spurs_r4_balanced"
+            },
+            {
+              "id": "spurs_r3_balanced_young",
+              "type": "rookie",
+              "title": "Play the Kids",
+              "description": "Let Castle and Sochan continue developing through playoff race.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Young players gain valuable experience.",
+              "nextScenario": "spurs_r4_balanced"
+            },
+            {
+              "id": "spurs_r3_balanced_hold",
+              "type": "strategy",
+              "title": "Stand Pat",
+              "description": "The roster is good. Execute.",
+              "costBreakdown": "No changes",
+              "winChange": 0,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Team chemistry solidifies.",
+              "nextScenario": "spurs_r4_balanced"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r3_conservative",
+          "round": 3,
+          "title": "Patient Approach",
+          "description": "Development is progressing well, but playoffs are uncertain.",
+          "choices": [
+            {
+              "id": "spurs_r3_conservative_push",
+              "type": "star",
+              "title": "Make a Push",
+              "player": "paul_george",
+              "description": "PG is available. Accelerate now.",
+              "costBreakdown": "Salary: $42M",
+              "winChange": 4,
+              "salaryChange": 42000000,
+              "riskLevel": "high",
+              "consequence": "Star power arrives! Playoff push begins.",
+              "nextScenario": "spurs_r4_balanced"
+            },
+            {
+              "id": "spurs_r3_conservative_depth",
+              "type": "depth",
+              "title": "Add Experience",
+              "description": "Sign veterans to mentor and contribute.",
+              "costBreakdown": "Salary: $8M",
+              "winChange": 2,
+              "salaryChange": 8000000,
+              "riskLevel": "low",
+              "consequence": "Veteran presence helps the young team.",
+              "nextScenario": "spurs_r4_conservative"
+            },
+            {
+              "id": "spurs_r3_conservative_stay",
+              "type": "rookie",
+              "title": "Stay the Course",
+              "description": "Development year. Focus on growth.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Young players continue improving.",
+              "nextScenario": "spurs_r4_conservative"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r3_youth",
+          "round": 3,
+          "title": "Full Rebuild Mode",
+          "description": "The young core is the future. But is there a way to compete now too?",
+          "choices": [
+            {
+              "id": "spurs_r3_youth_accelerate",
+              "type": "star",
+              "title": "Add a Star",
+              "player": "demar_derozan",
+              "description": "Bring DeMar home to help Wemby.",
+              "costBreakdown": "Salary: $25M",
+              "winChange": 3,
+              "salaryChange": 25000000,
+              "riskLevel": "medium",
+              "consequence": "DeRozan returns! Immediate impact.",
+              "nextScenario": "spurs_r4_balanced"
+            },
+            {
+              "id": "spurs_r3_youth_vet",
+              "type": "depth",
+              "title": "Add Veteran Guide",
+              "description": "Sign experienced players to help development.",
+              "costBreakdown": "Salary: $6M",
+              "winChange": 2,
+              "salaryChange": 6000000,
+              "riskLevel": "low",
+              "consequence": "Veterans provide stability.",
+              "nextScenario": "spurs_r4_conservative"
+            },
+            {
+              "id": "spurs_r3_youth_pure",
+              "type": "rookie",
+              "title": "Pure Development",
+              "description": "Let the kids play. This is year one.",
+              "costBreakdown": "No salary impact",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Young players learn through experience.",
+              "nextScenario": "spurs_r4_youth"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r4_contender",
+          "round": 4,
+          "title": "Championship or Bust",
+          "description": "The Spurs are a legitimate contender. Final preparations.",
+          "choices": [
+            {
+              "id": "spurs_r4_contender_add",
+              "type": "depth",
+              "title": "Add Insurance",
+              "description": "Sign veteran minimum player.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 1,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "Championship depth secured.",
+              "nextScenario": "spurs_final"
+            },
+            {
+              "id": "spurs_r4_contender_focus",
+              "type": "strategy",
+              "title": "Focus on Execution",
+              "description": "No more moves. Execute.",
+              "costBreakdown": "No changes",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Team peaks at the right time.",
+              "nextScenario": "spurs_final"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r4_balanced",
+          "round": 4,
+          "title": "Playoff Bound",
+          "description": "The Spurs are in the playoff race. Finish strong.",
+          "choices": [
+            {
+              "id": "spurs_r4_balanced_push",
+              "type": "depth",
+              "title": "Final Push",
+              "description": "Add minimum salary depth.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 1,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "Extra bodies for the stretch.",
+              "nextScenario": "spurs_final"
+            },
+            {
+              "id": "spurs_r4_balanced_hold",
+              "type": "strategy",
+              "title": "Trust the Process",
+              "description": "The team is ready.",
+              "costBreakdown": "No changes",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Team executes down the stretch.",
+              "nextScenario": "spurs_final"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r4_conservative",
+          "round": 4,
+          "title": "Play-In Hunt",
+          "description": "The Spurs are fighting for a play-in spot.",
+          "choices": [
+            {
+              "id": "spurs_r4_conservative_push",
+              "type": "depth",
+              "title": "Push for Play-In",
+              "description": "Add veteran for stretch run.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 2,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "Veteran leadership helps close games.",
+              "nextScenario": "spurs_final"
+            },
+            {
+              "id": "spurs_r4_conservative_young",
+              "type": "rookie",
+              "title": "Develop Through Fire",
+              "description": "Young players need these moments.",
+              "costBreakdown": "No changes",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "medium",
+              "consequence": "Young players grow from the pressure.",
+              "nextScenario": "spurs_final"
+            }
+          ]
+        },
+        {
+          "id": "spurs_r4_youth",
+          "round": 4,
+          "title": "Future is Bright",
+          "description": "Playoffs are unlikely, but the development has been incredible.",
+          "choices": [
+            {
+              "id": "spurs_r4_youth_push",
+              "type": "depth",
+              "title": "Make a Run",
+              "description": "Add a veteran to push for play-in.",
+              "costBreakdown": "Salary: $2M",
+              "winChange": 2,
+              "salaryChange": 2000000,
+              "riskLevel": "low",
+              "consequence": "One last push for the postseason.",
+              "nextScenario": "spurs_final"
+            },
+            {
+              "id": "spurs_r4_youth_accept",
+              "type": "rookie",
+              "title": "Accept the Process",
+              "description": "This was always a development year.",
+              "costBreakdown": "No changes",
+              "winChange": 1,
+              "salaryChange": 0,
+              "riskLevel": "low",
+              "consequence": "Focus on development pays off long-term.",
+              "nextScenario": "spurs_final"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

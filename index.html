@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Luxury Tax Challenge - GM Simulator</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Main Game Container -->
+    <div id="game-container">
+
+        <!-- Start Screen -->
+        <section id="start-screen" class="screen active">
+            <div class="logo-container">
+                <div class="basketball-logo">
+                    <div class="ball"></div>
+                </div>
+                <h1 class="game-title">LUXURY TAX</h1>
+                <h2 class="game-subtitle">CHALLENGE</h2>
+                <p class="tagline">Can you build a championship team without breaking the bank?</p>
+            </div>
+
+            <div class="start-info">
+                <div class="info-card">
+                    <span class="info-icon">💰</span>
+                    <span class="info-text">Salary Cap: <strong>$136M</strong></span>
+                </div>
+                <div class="info-card">
+                    <span class="info-icon">🚫</span>
+                    <span class="info-text">Budget Limit: <strong>$150M</strong></span>
+                </div>
+                <div class="info-card">
+                    <span class="info-icon">🏆</span>
+                    <span class="info-text">Target: <strong>46+ Wins</strong></span>
+                </div>
+            </div>
+
+            <button id="start-btn" class="primary-btn">
+                <span>SELECT YOUR TEAM</span>
+                <div class="btn-glow"></div>
+            </button>
+
+            <div class="instructions">
+                <p>Learn NBA salary cap management through real scenarios</p>
+            </div>
+        </section>
+
+        <!-- Team Selection Screen -->
+        <section id="team-select-screen" class="screen">
+            <h2 class="section-title">CHOOSE YOUR FRANCHISE</h2>
+            <p class="section-subtitle">Each team presents unique cap challenges</p>
+
+            <div class="team-cards-container">
+                <!-- Lakers Card -->
+                <div class="team-card" data-team="lakers">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <div class="team-logo lakers-logo">
+                                <span>LAL</span>
+                            </div>
+                            <h3 class="team-name">Los Angeles Lakers</h3>
+                            <div class="team-situation">
+                                <span class="difficulty hard">HARD</span>
+                                <p>Legacy franchise seeking another ring</p>
+                            </div>
+                            <div class="team-stats-preview">
+                                <div class="stat">
+                                    <span class="label">Current Wins</span>
+                                    <span class="value">42</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Payroll</span>
+                                    <span class="value">$138M</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <h4>The Challenge</h4>
+                            <p>Already over the cap with aging stars. Do you go all-in for one more championship run, or start planning for the future?</p>
+                            <ul class="challenge-points">
+                                <li>High payroll, limited flexibility</li>
+                                <li>Star players demanding max contracts</li>
+                                <li>Ownership expects playoffs</li>
+                            </ul>
+                            <button class="select-team-btn" data-team="lakers">SELECT LAKERS</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bucks Card -->
+                <div class="team-card" data-team="bucks">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <div class="team-logo bucks-logo">
+                                <span>MIL</span>
+                            </div>
+                            <h3 class="team-name">Milwaukee Bucks</h3>
+                            <div class="team-situation">
+                                <span class="difficulty medium">MEDIUM</span>
+                                <p>Championship core needs supporting cast</p>
+                            </div>
+                            <div class="team-stats-preview">
+                                <div class="stat">
+                                    <span class="label">Current Wins</span>
+                                    <span class="value">44</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Payroll</span>
+                                    <span class="value">$134M</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <h4>The Challenge</h4>
+                            <p>Built around Giannis, but the supporting cast needs work. Can you find the right pieces without luxury tax disaster?</p>
+                            <ul class="challenge-points">
+                                <li>Superstar locked in long-term</li>
+                                <li>Need depth for playoff run</li>
+                                <li>Repeater tax looming</li>
+                            </ul>
+                            <button class="select-team-btn" data-team="bucks">SELECT BUCKS</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spurs Card -->
+                <div class="team-card" data-team="spurs">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <div class="team-logo spurs-logo">
+                                <span>SAS</span>
+                            </div>
+                            <h3 class="team-name">San Antonio Spurs</h3>
+                            <div class="team-situation">
+                                <span class="difficulty easy">MODERATE</span>
+                                <p>Rebuilding with generational talent</p>
+                            </div>
+                            <div class="team-stats-preview">
+                                <div class="stat">
+                                    <span class="label">Current Wins</span>
+                                    <span class="value">38</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Payroll</span>
+                                    <span class="value">$98M</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <h4>The Challenge</h4>
+                            <p>Victor Wembanyama leads the rebuild. Do you accelerate with star signings or stay patient and develop young talent?</p>
+                            <ul class="challenge-points">
+                                <li>Cap space flexibility</li>
+                                <li>Young core developing</li>
+                                <li>Patience vs. acceleration</li>
+                            </ul>
+                            <button class="select-team-btn" data-team="spurs">SELECT SPURS</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="back-to-start" class="secondary-btn">
+                <span>← BACK</span>
+            </button>
+        </section>
+
+        <!-- Main Game Screen -->
+        <section id="game-screen" class="screen">
+            <!-- Top HUD -->
+            <header class="game-hud">
+                <div class="hud-left">
+                    <div class="team-badge" id="current-team-badge">
+                        <span class="team-abbr">LAL</span>
+                    </div>
+                    <div class="round-indicator">
+                        <span class="round-label">ROUND</span>
+                        <span class="round-number" id="round-number">1</span>
+                        <span class="round-total">/ 5</span>
+                    </div>
+                </div>
+
+                <div class="hud-center">
+                    <div class="stat-bars">
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-label">
+                                <span>SALARY CAP</span>
+                                <span class="stat-value" id="cap-value">$134M / $136M</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill cap-fill" id="cap-bar" style="width: 98%"></div>
+                                <div class="stat-bar-threshold" style="left: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-label">
+                                <span>TOTAL SPEND</span>
+                                <span class="stat-value" id="budget-value">$134M / $150M</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill budget-fill" id="budget-bar" style="width: 89%"></div>
+                                <div class="stat-bar-threshold danger" style="left: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-label">
+                                <span>PROJECTED WINS</span>
+                                <span class="stat-value" id="wins-value">42 / 46</span>
+                            </div>
+                            <div class="stat-bar wins-bar">
+                                <div class="stat-bar-fill wins-fill" id="wins-bar" style="width: 91%"></div>
+                                <div class="stat-bar-threshold success" style="left: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hud-right">
+                    <div class="luxury-tax-display">
+                        <span class="tax-label">LUXURY TAX</span>
+                        <span class="tax-value" id="tax-value">$0</span>
+                    </div>
+                    <button id="menu-btn" class="icon-btn">
+                        <span>☰</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Scenario Container -->
+            <main class="scenario-container">
+                <div class="scenario-header">
+                    <h2 class="scenario-title" id="scenario-title">Opening Day Decision</h2>
+                    <p class="scenario-description" id="scenario-description">
+                        The season is about to begin. Your front office presents three strategic options for improving the roster.
+                    </p>
+                </div>
+
+                <!-- Decision Cards Container -->
+                <div class="decision-cards" id="decision-cards">
+                    <!-- Cards will be dynamically inserted -->
+                </div>
+
+                <!-- Player Details Modal -->
+                <div class="player-modal" id="player-modal">
+                    <div class="modal-content">
+                        <button class="modal-close" id="modal-close">×</button>
+                        <div class="modal-player-info">
+                            <div class="modal-player-image" id="modal-player-image"></div>
+                            <div class="modal-player-details">
+                                <h3 id="modal-player-name">Player Name</h3>
+                                <p class="modal-player-team" id="modal-player-team">Team</p>
+                            </div>
+                        </div>
+                        <div class="modal-stats" id="modal-stats">
+                            <!-- Stats will be inserted dynamically -->
+                        </div>
+                        <div class="modal-impact">
+                            <h4>Impact Analysis</h4>
+                            <div class="impact-grid" id="modal-impact">
+                                <!-- Impact details will be inserted -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Bottom Navigation -->
+            <footer class="game-footer">
+                <div class="roster-preview" id="roster-preview">
+                    <!-- Mini roster cards will be shown here -->
+                </div>
+                <div class="decision-history" id="decision-history">
+                    <!-- Decision path indicators -->
+                </div>
+            </footer>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="results-screen" class="screen">
+            <div class="results-container">
+                <div class="results-header" id="results-header">
+                    <div class="trophy-container" id="trophy-container">
+                        <!-- Trophy or failure icon -->
+                    </div>
+                    <h1 class="results-title" id="results-title">Season Complete!</h1>
+                    <h2 class="results-subtitle" id="results-subtitle">Championship Contender</h2>
+                </div>
+
+                <div class="results-stats">
+                    <div class="result-stat">
+                        <span class="result-label">Final Wins</span>
+                        <span class="result-value" id="final-wins">48</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="result-label">Total Spend</span>
+                        <span class="result-value" id="final-spend">$147M</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="result-label">Luxury Tax Paid</span>
+                        <span class="result-value" id="final-tax">$8.5M</span>
+                    </div>
+                </div>
+
+                <div class="results-path">
+                    <h3>Your GM Journey</h3>
+                    <div class="path-visualization" id="path-visualization">
+                        <!-- Decision path will be visualized here -->
+                    </div>
+                </div>
+
+                <div class="results-analysis" id="results-analysis">
+                    <h3>Performance Analysis</h3>
+                    <p id="analysis-text">
+                        You demonstrated strong cap management skills while building a competitive roster.
+                    </p>
+                </div>
+
+                <div class="results-actions">
+                    <button id="play-again-btn" class="primary-btn">
+                        <span>PLAY AGAIN</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                    <button id="share-btn" class="secondary-btn">
+                        <span>SHARE RESULTS</span>
+                    </button>
+                </div>
+
+                <div class="leaderboard-teaser">
+                    <p>Your GM Rating: <strong id="gm-rating">A-</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pause Menu Modal -->
+        <div class="pause-menu" id="pause-menu">
+            <div class="pause-content">
+                <h2>PAUSED</h2>
+                <div class="pause-stats">
+                    <p>Round: <span id="pause-round">1</span>/5</p>
+                    <p>Wins: <span id="pause-wins">42</span></p>
+                    <p>Budget Used: <span id="pause-budget">$134M</span></p>
+                </div>
+                <div class="pause-actions">
+                    <button id="resume-btn" class="primary-btn">RESUME</button>
+                    <button id="restart-btn" class="secondary-btn">RESTART</button>
+                    <button id="quit-btn" class="secondary-btn">QUIT TO MENU</button>
+                </div>
+                <div class="cap-explainer">
+                    <h4>Luxury Tax Explained</h4>
+                    <p>Teams exceeding the $136M salary cap pay a luxury tax on every dollar over. The tax rate increases progressively, making excessive spending very costly.</p>
+                    <div class="tax-brackets">
+                        <div class="bracket">$0-5M over: 1.5x tax</div>
+                        <div class="bracket">$5-10M over: 1.75x tax</div>
+                        <div class="bracket">$10-15M over: 2.5x tax</div>
+                        <div class="bracket">$15M+ over: 3.25x tax</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tutorial Overlay -->
+        <div class="tutorial-overlay" id="tutorial-overlay">
+            <div class="tutorial-card" id="tutorial-card">
+                <div class="tutorial-step" data-step="1">
+                    <h3>Welcome, GM!</h3>
+                    <p>You're about to learn how NBA teams manage the salary cap and luxury tax. Make smart decisions to build a winning team!</p>
+                    <div class="tutorial-visual">
+                        <div class="mock-stat-bar">
+                            <span>Salary Cap</span>
+                            <div class="mock-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-step" data-step="2" style="display:none">
+                    <h3>The Salary Cap</h3>
+                    <p>The NBA salary cap for 2025-26 is <strong>$136 million</strong>. Teams can exceed this, but they'll pay a luxury tax penalty.</p>
+                </div>
+                <div class="tutorial-step" data-step="3" style="display:none">
+                    <h3>Your Goals</h3>
+                    <ul>
+                        <li>🏆 Win at least <strong>46 games</strong> to make playoffs</li>
+                        <li>💰 Stay under <strong>$150M total spend</strong></li>
+                        <li>⚖️ Balance star power vs. cap flexibility</li>
+                    </ul>
+                </div>
+                <div class="tutorial-step" data-step="4" style="display:none">
+                    <h3>Ready to Begin?</h3>
+                    <p>Each decision affects your wins, payroll, and luxury tax. Choose wisely!</p>
+                </div>
+                <div class="tutorial-nav">
+                    <button id="tutorial-prev" class="secondary-btn" style="visibility:hidden">← Back</button>
+                    <div class="tutorial-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button id="tutorial-next" class="primary-btn">Next →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div class="loading-screen" id="loading-screen">
+            <div class="loading-content">
+                <div class="loading-ball"></div>
+                <p>Loading game data...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="src/player-database.js"></script>
+    <script src="src/game-engine.js"></script>
+    <script src="src/animations.js"></script>
+    <script src="src/ui-manager.js"></script>
+</body>
+</html>
