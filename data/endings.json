@@ -1,0 +1,194 @@
+{
+  "endings": {
+    "championship_run": {
+      "id": "championship_run",
+      "type": "victory",
+      "title": "Championship Contender!",
+      "subtitle": "A Legitimate Title Threat",
+      "icon": "🏆",
+      "description": "Your roster construction was masterful. You built a championship-caliber team that balances star power with depth.",
+      "requirements": {
+        "minWins": 50,
+        "maxSpend": 150000000
+      },
+      "rating": "A+",
+      "analysis": {
+        "lakers": "You maximized LeBron's remaining window. This Lakers team is built to compete for a title.",
+        "bucks": "Giannis has the supporting cast he needs. Milwaukee is a legitimate championship threat.",
+        "spurs": "You accelerated Wembanyama's timeline perfectly. The Spurs are back among the elite."
+      }
+    },
+    "playoff_success": {
+      "id": "playoff_success",
+      "type": "victory",
+      "title": "Playoff Bound!",
+      "subtitle": "Mission Accomplished",
+      "icon": "🎯",
+      "description": "You achieved the primary goal: building a playoff team while managing the budget responsibly.",
+      "requirements": {
+        "minWins": 46,
+        "maxSpend": 150000000
+      },
+      "rating": "A",
+      "analysis": {
+        "lakers": "The Lakers are back in the playoffs. You balanced LeBron's win-now pressure with financial prudence.",
+        "bucks": "Giannis gets another playoff run. Your cap management kept the team competitive.",
+        "spurs": "Wembanyama's first playoff experience! You built wisely around the young star."
+      }
+    },
+    "savvy_gm": {
+      "id": "savvy_gm",
+      "type": "victory",
+      "title": "Savvy GM!",
+      "subtitle": "Smart Money Management",
+      "icon": "💰",
+      "description": "You made the playoffs while keeping luxury tax payments minimal. Ownership loves you.",
+      "requirements": {
+        "minWins": 46,
+        "maxSpend": 140000000
+      },
+      "rating": "A-",
+      "analysis": {
+        "lakers": "Playoffs AND financial stability? You've achieved the impossible in Los Angeles.",
+        "bucks": "Smart cap management while keeping Giannis competitive. Excellent work.",
+        "spurs": "Cap space preserved, playoffs achieved. The Spurs way continues."
+      }
+    },
+    "big_spender": {
+      "id": "big_spender",
+      "type": "victory",
+      "title": "Big Spender!",
+      "subtitle": "Paid the Price for Success",
+      "icon": "💎",
+      "description": "You made the playoffs, but the luxury tax bill is enormous. Hope ownership is patient.",
+      "requirements": {
+        "minWins": 46,
+        "maxSpend": 150000000,
+        "minTax": 10000000
+      },
+      "rating": "B+",
+      "analysis": {
+        "lakers": "The Lakers made the playoffs, but the tax bill is staggering. Championships justify everything... if you win.",
+        "bucks": "Giannis is happy, but the accountants are not. This spending isn't sustainable.",
+        "spurs": "Aggressive spending for a rebuilding team? Interesting strategy. It worked... barely."
+      }
+    },
+    "development_win": {
+      "id": "development_win",
+      "type": "victory",
+      "title": "Youth Movement Success!",
+      "subtitle": "Built for the Future",
+      "icon": "⭐",
+      "description": "You achieved playoff success while developing young talent. The future is bright.",
+      "requirements": {
+        "minWins": 46,
+        "maxSpend": 130000000
+      },
+      "rating": "A",
+      "analysis": {
+        "lakers": "Dalton Knecht and the young Lakers stepped up. The post-LeBron era looks promising.",
+        "bucks": "AJ Johnson and Andre Jackson are ready for bigger roles. Giannis has future help.",
+        "spurs": "Stephon Castle and Jeremy Sochan emerged. Wembanyama has his supporting cast."
+      }
+    },
+    "budget_blown": {
+      "id": "budget_blown",
+      "type": "failure",
+      "title": "Budget Blown!",
+      "subtitle": "Financial Disaster",
+      "icon": "💸",
+      "description": "You exceeded the $150M budget limit. Ownership has lost patience. Your tenure ends.",
+      "requirements": {
+        "minSpend": 150000001
+      },
+      "rating": "F",
+      "analysis": {
+        "lakers": "The Buss family wanted wins, not bankruptcy. Your aggressive spending crossed the line.",
+        "bucks": "Small market teams can't sustain this spending. Milwaukee's financial limits were clear.",
+        "spurs": "The Spurs organization values stability. Your reckless spending violated their core principles."
+      }
+    },
+    "missed_playoffs": {
+      "id": "missed_playoffs",
+      "type": "failure",
+      "title": "Season Failure",
+      "subtitle": "Missed the Playoffs",
+      "icon": "😔",
+      "description": "Despite staying under budget, you failed to reach the 46-win threshold for playoffs.",
+      "requirements": {
+        "maxWins": 45,
+        "maxSpend": 150000000
+      },
+      "rating": "D",
+      "analysis": {
+        "lakers": "LeBron's window is closing. Wasting a season with a non-playoff team is unacceptable.",
+        "bucks": "Giannis's prime is being squandered. He expected contention, not mediocrity.",
+        "spurs": "Development is fine, but 46 wins was achievable. You were too conservative."
+      }
+    },
+    "complete_disaster": {
+      "id": "complete_disaster",
+      "type": "failure",
+      "title": "Fired!",
+      "subtitle": "Total Failure",
+      "icon": "🚫",
+      "description": "You exceeded the budget AND missed the playoffs. Security is escorting you out.",
+      "requirements": {
+        "maxWins": 45,
+        "minSpend": 150000001
+      },
+      "rating": "F-",
+      "analysis": {
+        "lakers": "Overspent and underperformed. The Lakers are a laughingstock. You're done in basketball.",
+        "bucks": "You somehow spent a fortune and still missed playoffs. Giannis is demanding a trade.",
+        "spurs": "Gregg Popovich would never. You've embarrassed the entire organization."
+      }
+    },
+    "rebuild_mode": {
+      "id": "rebuild_mode",
+      "type": "neutral",
+      "title": "Development Year",
+      "subtitle": "Building for Tomorrow",
+      "icon": "📈",
+      "description": "You stayed under budget but prioritized development over winning. Acceptable for young teams.",
+      "requirements": {
+        "maxWins": 45,
+        "maxSpend": 130000000
+      },
+      "rating": "C+",
+      "analysis": {
+        "lakers": "Development? With LeBron? This might not fly in Los Angeles, but the young players did grow.",
+        "bucks": "Giannis isn't getting younger. This patient approach might cost you his prime.",
+        "spurs": "Classic Spurs development approach. Wembanyama is progressing. Patience may pay off."
+      }
+    }
+  },
+  "ratingThresholds": {
+    "A+": { "minWins": 50, "maxTaxRate": 0.15 },
+    "A": { "minWins": 48, "maxTaxRate": 0.20 },
+    "A-": { "minWins": 46, "maxTaxRate": 0.10 },
+    "B+": { "minWins": 46, "maxTaxRate": 0.25 },
+    "B": { "minWins": 44, "maxTaxRate": 0.20 },
+    "B-": { "minWins": 42, "maxTaxRate": 0.15 },
+    "C+": { "minWins": 40, "maxTaxRate": 0.10 },
+    "C": { "minWins": 38, "maxTaxRate": 0.10 },
+    "D": { "minWins": 35, "maxTaxRate": 0.05 },
+    "F": { "minWins": 0, "maxTaxRate": 1.0 }
+  },
+  "gmTitles": {
+    "A+": "Executive of the Year",
+    "A": "All-Star GM",
+    "A-": "Smart Money Manager",
+    "B+": "Solid Performer",
+    "B": "Competent GM",
+    "B-": "Developing Manager",
+    "C+": "Average Performance",
+    "C": "Below Expectations",
+    "D": "On the Hot Seat",
+    "F": "Fired"
+  },
+  "shareMessages": {
+    "victory": "🏀 I built a playoff team in the NBA Luxury Tax Challenge! Final: {wins} wins, ${spend}M spent. Rating: {rating}. Can you do better?",
+    "failure": "🏀 I tried the NBA Luxury Tax Challenge and {reason}. It's harder than it looks! Try it yourself."
+  }
+}

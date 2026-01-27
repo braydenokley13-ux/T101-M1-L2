@@ -1,0 +1,604 @@
+/* ====================================
+   NBA LUXURY TAX CHALLENGE - ANIMATIONS
+   ==================================== */
+
+/* ====================================
+   KEYFRAME ANIMATIONS
+   ==================================== */
+
+/* Float Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Glow Pulse */
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 102, 255, 0.6);
+    }
+}
+
+/* Button Shine */
+@keyframes btnShine {
+    0% {
+        left: -100%;
+    }
+    20% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Down */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide In Left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide In Right */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale In */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Modal Slide In */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Card Entrance */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(40px) rotateX(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+/* Number Roll */
+@keyframes numberRoll {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(10%);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Fill Bar Animation */
+@keyframes fillBar {
+    0%, 100% {
+        width: 75%;
+    }
+    50% {
+        width: 85%;
+    }
+}
+
+/* Confetti Fall */
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Money Fall */
+@keyframes moneyFall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Fire Burst */
+@keyframes fireBurst {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Ripple Effect */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Spin Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Trophy Bounce */
+@keyframes trophyBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    25% {
+        transform: translateY(-20px) scale(1.05);
+    }
+    50% {
+        transform: translateY(0) scale(1);
+    }
+    75% {
+        transform: translateY(-10px) scale(1.02);
+    }
+}
+
+/* Bar Fill */
+@keyframes barFill {
+    from {
+        width: 0;
+    }
+}
+
+/* Text Reveal */
+@keyframes textReveal {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Glow Effect */
+@keyframes glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px currentColor);
+    }
+    50% {
+        filter: drop-shadow(0 0 20px currentColor);
+    }
+}
+
+/* Court Lines Animation */
+@keyframes courtLines {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ====================================
+   ANIMATION CLASSES
+   ==================================== */
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.5s ease forwards;
+}
+
+.animate-slide-left {
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+.animate-slide-right {
+    animation: slideInRight 0.5s ease forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.3s ease forwards;
+}
+
+.animate-card-entrance {
+    animation: cardEntrance 0.6s ease forwards;
+}
+
+.animate-bounce {
+    animation: bounce 0.6s ease-in-out;
+}
+
+.animate-pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.animate-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Staggered Card Animations */
+.decision-card:nth-child(1) {
+    animation: cardEntrance 0.6s ease forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+}
+
+.decision-card:nth-child(2) {
+    animation: cardEntrance 0.6s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.decision-card:nth-child(3) {
+    animation: cardEntrance 0.6s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+/* ====================================
+   PARTICLE EFFECTS (CSS)
+   ==================================== */
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: confettiFall 3s linear forwards;
+}
+
+.confetti.gold {
+    background: var(--championship-gold);
+}
+
+.confetti.blue {
+    background: var(--electric-blue);
+}
+
+.confetti.green {
+    background: var(--success-green);
+}
+
+.money-particle {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: moneyFall 2s ease-in forwards;
+    pointer-events: none;
+}
+
+/* ====================================
+   TRANSITION UTILITIES
+   ==================================== */
+
+.transition-fast {
+    transition: all 0.15s ease;
+}
+
+.transition-normal {
+    transition: all 0.3s ease;
+}
+
+.transition-slow {
+    transition: all 0.5s ease;
+}
+
+/* ====================================
+   HOVER EFFECTS
+   ==================================== */
+
+/* Card Tilt Effect */
+.tilt-card {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.tilt-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+}
+
+/* Ripple Button Effect */
+.ripple-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.ripple-btn:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+/* Glow on Hover */
+.glow-hover {
+    transition: box-shadow 0.3s ease;
+}
+
+.glow-hover:hover {
+    box-shadow: 0 0 30px var(--electric-blue-glow);
+}
+
+/* ====================================
+   LOADING STATES
+   ==================================== */
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--glass-bg) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        var(--glass-bg) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ====================================
+   STAT BAR ANIMATIONS
+   ==================================== */
+
+.stat-bar-fill {
+    transform-origin: left;
+    animation: barFill 1s ease-out forwards;
+}
+
+.stat-bar-fill.animate {
+    animation: barFill 0.5s ease-out forwards;
+}
+
+/* Number Change Animation */
+.number-change {
+    display: inline-block;
+    animation: numberRoll 0.4s ease-out;
+}
+
+.number-change.increase {
+    color: var(--success-green);
+}
+
+.number-change.decrease {
+    color: var(--danger-red);
+}
+
+/* ====================================
+   SCREEN TRANSITIONS
+   ==================================== */
+
+.screen-transition-enter {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.screen-transition-exit {
+    animation: fadeIn 0.3s ease reverse forwards;
+}
+
+/* ====================================
+   SPECIAL EFFECTS
+   ==================================== */
+
+/* Victory Celebration */
+.victory-effect {
+    animation: trophyBounce 1s ease-in-out;
+}
+
+/* Failure Shake */
+.failure-effect {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Star Glow */
+.star-glow {
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Fire Effect Wrapper */
+.fire-effect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--court-orange) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: fireBurst 0.5s ease-out forwards;
+    pointer-events: none;
+}
+
+/* ====================================
+   MEDIA QUERIES FOR REDUCED MOTION
+   ==================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .decision-card:nth-child(1),
+    .decision-card:nth-child(2),
+    .decision-card:nth-child(3) {
+        opacity: 1;
+        animation: none;
+    }
+}
