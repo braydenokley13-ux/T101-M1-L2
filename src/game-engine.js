@@ -8,7 +8,8 @@ class GameEngine {
     constructor() {
         // Game Constants (simplified for students)
         this.SALARY_CAP = 136000000;      // $136 Million
-        this.BUDGET_LIMIT = 150000000;    // $150 Million max
+        this.BUDGET_LIMIT = 190000000;    // $190 Million max (realistic for competitive teams)
+        this.SOFT_BUDGET = 150000000;     // $150 Million - ideal target
         this.PLAYOFF_WINS = 46;           // Need 46 wins for playoffs
         this.TOTAL_ROUNDS = 4;
 
@@ -218,41 +219,57 @@ class GameEngine {
     getEnding() {
         const state = this.getGameState();
 
-        // Check failure conditions first
+        // EXTREME over budget ($190M+) - always a failure
         if (state.isOverBudget && !state.madePlayoffs) {
             return this.endings.endings.complete_disaster;
         }
 
-        if (state.isOverBudget) {
+        if (state.isOverBudget && state.wins < 48) {
+            // Over max budget and didn't win enough to justify it
             return this.endings.endings.budget_blown;
         }
 
-        if (!state.madePlayoffs && state.totalSpend < 130000000) {
+        // Check if made playoffs first - wins matter!
+        if (state.madePlayoffs) {
+            // Championship-level performance (50+ wins)
+            if (state.wins >= 50 && state.totalSpend <= this.SOFT_BUDGET) {
+                return this.endings.endings.championship_run;
+            }
+
+            // High spender but got the wins to justify it (48+ wins, spent big)
+            if (state.wins >= 48 && state.totalSpend > 170000000) {
+                return this.endings.endings.championship_spender;
+            }
+
+            // Championship run with moderate spending
+            if (state.wins >= 50) {
+                return this.endings.endings.championship_run;
+            }
+
+            // Budget-conscious success
+            if (state.totalSpend <= 130000000) {
+                return this.endings.endings.development_win;
+            }
+
+            if (state.totalSpend <= 140000000) {
+                return this.endings.endings.savvy_gm;
+            }
+
+            // Made playoffs with high tax but still under hard cap
+            if (state.luxuryTax >= 10000000 && state.totalSpend <= this.BUDGET_LIMIT) {
+                return this.endings.endings.big_spender;
+            }
+
+            // Made playoffs - general success
+            return this.endings.endings.playoff_success;
+        }
+
+        // Didn't make playoffs
+        if (state.totalSpend < 130000000) {
             return this.endings.endings.rebuild_mode;
         }
 
-        if (!state.madePlayoffs) {
-            return this.endings.endings.missed_playoffs;
-        }
-
-        // Victory conditions
-        if (state.wins >= 50 && state.totalSpend <= this.BUDGET_LIMIT) {
-            return this.endings.endings.championship_run;
-        }
-
-        if (state.totalSpend <= 130000000) {
-            return this.endings.endings.development_win;
-        }
-
-        if (state.totalSpend <= 140000000) {
-            return this.endings.endings.savvy_gm;
-        }
-
-        if (state.luxuryTax >= 10000000) {
-            return this.endings.endings.big_spender;
-        }
-
-        return this.endings.endings.playoff_success;
+        return this.endings.endings.missed_playoffs;
     }
 
     // Get ending analysis for current team
@@ -271,17 +288,22 @@ class GameEngine {
         // Wins (max 50 points)
         score += Math.min(50, state.wins);
 
-        // Budget management (max 30 points)
+        // Budget management (max 30 points) - adjusted for realistic NBA spending
         if (state.totalSpend <= 130000000) score += 30;
-        else if (state.totalSpend <= 140000000) score += 20;
-        else if (state.totalSpend <= 150000000) score += 10;
-        else score -= 20;
+        else if (state.totalSpend <= 140000000) score += 25;
+        else if (state.totalSpend <= this.SOFT_BUDGET) score += 20;
+        else if (state.totalSpend <= 170000000) score += 10;
+        else if (state.totalSpend <= this.BUDGET_LIMIT) score += 5;
+        else score -= 10; // Only penalize if over hard cap
 
         // Luxury tax efficiency (max 20 points)
         if (state.luxuryTax === 0) score += 20;
         else if (state.luxuryTax < 5000000) score += 15;
-        else if (state.luxuryTax < 10000000) score += 10;
-        else if (state.luxuryTax < 20000000) score += 5;
+        else if (state.luxuryTax < 15000000) score += 10;
+        else if (state.luxuryTax < 30000000) score += 5;
+
+        // Bonus for making playoffs
+        if (state.madePlayoffs) score += 5;
 
         // Determine letter grade
         if (score >= 90) return 'A+';

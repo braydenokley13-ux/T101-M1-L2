@@ -10,7 +10,8 @@ const PlayerDatabase = {
     // Salary Cap Constants
     SALARY_CAP: 136000000,        // $136M
     LUXURY_TAX_LINE: 165000000,   // $165M luxury tax threshold
-    BUDGET_LIMIT: 150000000,      // $150M max total spend for game
+    BUDGET_LIMIT: 190000000,      // $190M max total spend for game (realistic for contenders)
+    SOFT_BUDGET: 150000000,       // $150M ideal spending target
     PLAYOFF_WINS: 46,             // Target wins for playoffs
 
     // Tax Brackets (simplified for educational purposes)
