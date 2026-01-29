@@ -9,7 +9,7 @@
       "description": "Your roster construction was masterful. You built a championship-caliber team that balances star power with depth.",
       "requirements": {
         "minWins": 50,
-        "maxSpend": 150000000
+        "maxSpend": 190000000
       },
       "rating": "A+",
       "analysis": {
@@ -27,7 +27,7 @@
       "description": "You achieved the primary goal: building a playoff team while managing the budget responsibly.",
       "requirements": {
         "minWins": 46,
-        "maxSpend": 150000000
+        "maxSpend": 190000000
       },
       "rating": "A",
       "analysis": {
@@ -63,7 +63,7 @@
       "description": "You made the playoffs, but the luxury tax bill is enormous. Hope ownership is patient.",
       "requirements": {
         "minWins": 46,
-        "maxSpend": 150000000,
+        "maxSpend": 170000000,
         "minTax": 10000000
       },
       "rating": "B+",
@@ -71,6 +71,25 @@
         "lakers": "The Lakers made the playoffs, but the tax bill is staggering. Championships justify everything... if you win.",
         "bucks": "Giannis is happy, but the accountants are not. This spending isn't sustainable.",
         "spurs": "Aggressive spending for a rebuilding team? Interesting strategy. It worked... barely."
+      }
+    },
+    "championship_spender": {
+      "id": "championship_spender",
+      "type": "victory",
+      "title": "All In!",
+      "subtitle": "Went for the Championship",
+      "icon": "🏆💰",
+      "description": "You spent big and won big! The luxury tax is massive, but you built a true contender. Sometimes you have to pay to play!",
+      "requirements": {
+        "minWins": 48,
+        "minSpend": 170000000,
+        "maxSpend": 190000000
+      },
+      "rating": "B",
+      "analysis": {
+        "lakers": "The Lakers are championship contenders! Yes, the tax bill is huge, but this is LeBron's window. Go for it!",
+        "bucks": "Giannis has a real shot at another title. The spending is aggressive but justified for a championship run.",
+        "spurs": "You accelerated the timeline around Wembanyama. High risk, high reward - and it's paying off!"
       }
     },
     "development_win": {
@@ -97,13 +116,14 @@
       "title": "Budget Blown!",
       "subtitle": "Financial Disaster",
       "icon": "💸",
-      "description": "You exceeded the $150M budget limit. Ownership has lost patience. Your tenure ends.",
+      "description": "You exceeded the $190M budget limit without enough wins to justify it. The spending was reckless.",
       "requirements": {
-        "minSpend": 150000001
+        "minSpend": 190000001,
+        "maxWins": 47
       },
       "rating": "F",
       "analysis": {
-        "lakers": "The Buss family wanted wins, not bankruptcy. Your aggressive spending crossed the line.",
+        "lakers": "The Buss family wanted wins, not bankruptcy. You spent big without the results to show for it.",
         "bucks": "Small market teams can't sustain this spending. Milwaukee's financial limits were clear.",
         "spurs": "The Spurs organization values stability. Your reckless spending violated their core principles."
       }
@@ -135,7 +155,7 @@
       "description": "You exceeded the budget AND missed the playoffs. Security is escorting you out.",
       "requirements": {
         "maxWins": 45,
-        "minSpend": 150000001
+        "minSpend": 190000001
       },
       "rating": "F-",
       "analysis": {
