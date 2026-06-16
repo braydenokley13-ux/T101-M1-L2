@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0b1220">
-    <meta name="description" content="Trade Deadline War Room — a Bow Sports Capital front-office simulation for Track 101, Module 1, Lesson 2.">
-    <title>Trade Deadline War Room · Bow Sports Capital</title>
+    <meta name="theme-color" content="#0a0a0b">
+    <meta name="description" content="Trade Deadline War Room — a BOW Sports Capital front-office simulation for Track 101, Module 1, Lesson 2. Learn the NBA salary cap and luxury tax by running a team at the trade deadline.">
+    <title>Trade Deadline War Room · BOW Sports Capital</title>
 
-    <!-- Fonts (with a system-font fallback if offline) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <!-- BOW design-system tokens (fonts, colors, type, spacing, shape) -->
+    <link rel="stylesheet" href="styles/tokens.css">
+    <!-- War Room app styles (animations + responsive grids) -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <main id="app" class="app">
+    <main id="app" class="wr-app" role="application" aria-label="Trade Deadline War Room simulation">
         <!-- Screens are rendered here by src/app.js -->
         <noscript>
             <div class="fatal">This simulation needs JavaScript turned on. Please enable JavaScript and refresh.</div>
         </noscript>
     </main>
 
-    <!-- Game logic (pure) → content data → UI controller. No build step, no network calls. -->
+    <!-- Pure game logic → content data → UI controller. No build step, no network calls. -->
     <script src="src/simulation.js"></script>
     <script src="src/data.js"></script>
     <script src="src/app.js"></script>

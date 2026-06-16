@@ -189,6 +189,90 @@ test('buildCompletionResult has Highway-World-friendly shape', function () {
   assert.strictEqual(result.highwayWorldLocation, 'front-office');
 });
 
+// ---- two-round projection chain -----------------------------------------
+test('projectChain runs start → trade → pressure → round2 in order', function () {
+  var base = { cash: 60, wins: 50, chemistry: 50, clout: 50 };
+  var trade = { deltas: { cash: -28, wins: 18 } };          // star-style
+  var pressure = { effect: { cash: -5 } };                  // tax warning
+  var round2 = { deltas: { cash: 18, wins: -5 } };          // protect budget
+  var c = Sim.projectChain(base, trade, pressure, round2);
+  assert.strictEqual(c.start.cash, 60);
+  assert.strictEqual(c.afterTrade.cash, 32);                // 60 - 28
+  assert.strictEqual(c.afterPressure.cash, 27);             // 32 - 5
+  assert.strictEqual(c.final.cash, 45);                     // 27 + 18
+  assert.strictEqual(c.final.wins, 63);                     // 50 + 18 - 5
+});
+
+test('projectChain tolerates missing steps and never throws', function () {
+  var c = Sim.projectChain({ cash: 50, wins: 50, chemistry: 50, clout: 50 }, null, null, null);
+  assert.deepStrictEqual(c.final, { cash: 50, wins: 50, chemistry: 50, clout: 50 });
+});
+
+// ---- Round 2 closing moves ----------------------------------------------
+test('every Round 2 move has four valid metric deltas', function () {
+  assert.strictEqual(Data.ROUND2_MOVES.length, 3);
+  Data.ROUND2_MOVES.forEach(function (m) {
+    assert.ok(m.id && m.label && m.deltas);
+    Sim.METRIC_KEYS.forEach(function (k) {
+      assert.strictEqual(typeof m.deltas[k], 'number', m.id + ' missing ' + k);
+    });
+  });
+});
+
+test('Round 2 "Protect the Budget" raises Cap Space; "Push Your Chips In" lowers it', function () {
+  var balance = Data.getRound2('balance');
+  var reinforce = Data.getRound2('reinforce');
+  var base = { cash: 40, wins: 50, chemistry: 50, clout: 50 };
+  assert.ok(Sim.applyDeltas(base, balance.deltas).cash > 40);
+  assert.ok(Sim.applyDeltas(base, reinforce.deltas).cash < 40);
+});
+
+// ---- tax note (4 branches) ----------------------------------------------
+test('taxNote covers all four line-crossing cases', function () {
+  var crossed = Sim.taxNote({ cash: 50 }, { cash: 30 });   // over → under threshold
+  assert.strictEqual(crossed.tone, 'negative');
+  assert.strictEqual(crossed.label, 'Luxury Tax');
+
+  var relief = Sim.taxNote({ cash: 30 }, { cash: 55 });    // came back under
+  assert.strictEqual(relief.tone, 'positive');
+  assert.strictEqual(relief.label, 'Cap Relief');
+
+  var stillOver = Sim.taxNote({ cash: 30 }, { cash: 20 });
+  assert.strictEqual(stillOver.tone, 'negative');
+
+  var stayedUnder = Sim.taxNote({ cash: 80 }, { cash: 70 });
+  assert.strictEqual(stayedUnder.tone, 'positive');
+  assert.strictEqual(stayedUnder.label, 'Under the Line');
+});
+
+// ---- front-page headline tiers ------------------------------------------
+test('frontpageHeadline maps final metrics to the right verdict tier', function () {
+  // big wins + over the line → "bet the bank"
+  assert.strictEqual(Sim.frontpageHeadline({ cash: 30, wins: 80, chemistry: 50, clout: 50 }, 'LAKERS').tier, 'bet-the-bank');
+  // big wins + under the line → "built for now"
+  assert.strictEqual(Sim.frontpageHeadline({ cash: 60, wins: 80, chemistry: 50, clout: 50 }, 'LAKERS').tier, 'built-for-now');
+  // over the line + low wins → "expensive middle"
+  assert.strictEqual(Sim.frontpageHeadline({ cash: 30, wins: 55, chemistry: 50, clout: 50 }, 'LAKERS').tier, 'expensive-middle');
+  // lots of cap space → "powder dry"
+  assert.strictEqual(Sim.frontpageHeadline({ cash: 80, wins: 64, chemistry: 50, clout: 50 }, 'LAKERS').tier, 'powder-dry');
+  // otherwise → "pick their lane"
+  assert.strictEqual(Sim.frontpageHeadline({ cash: 55, wins: 64, chemistry: 50, clout: 50 }, 'LAKERS').tier, 'pick-their-lane');
+  // headline carries the team nickname
+  assert.ok(Sim.frontpageHeadline({ cash: 55, wins: 64, chemistry: 50, clout: 50 }, 'SPURS').head.indexOf('SPURS') === 0);
+});
+
+test('strategyNameFor gives editorial display names', function () {
+  assert.strictEqual(Sim.strategyNameFor('star'), 'The Star Chaser');
+  assert.strictEqual(Sim.strategyNameFor('future'), 'The Future Planner');
+  assert.strictEqual(Sim.strategyNameFor('???'), 'The Front Office Strategist');
+});
+
+// ---- metric labels match the redesign -----------------------------------
+test('cash reads as Cap Space and clout as Buzz', function () {
+  assert.strictEqual(Sim.METRIC_LABELS.cash, 'Cap Space');
+  assert.strictEqual(Sim.METRIC_LABELS.clout, 'Buzz');
+});
+
 // ---- data integrity -----------------------------------------------------
 test('every team builds exactly four trade offers with player names filled', function () {
   Data.TEAMS.forEach(function (team) {
@@ -197,8 +281,35 @@ test('every team builds exactly four trade offers with player names filled', fun
     trades.forEach(function (t) {
       assert.ok(t.get.indexOf('{') === -1, 'unfilled placeholder in ' + t.id);
       assert.ok(t.give.indexOf('{') === -1, 'unfilled placeholder in ' + t.id);
+      assert.ok(t.cost && t.cost.length > 0, 'missing cost note in ' + t.id);
     });
   });
+});
+
+test('every team names a cornerstone star; Milwaukee has its own storyline', function () {
+  Data.TEAMS.forEach(function (team) {
+    assert.ok(team.cornerstone && team.cornerstone.length > 0, team.id + ' missing cornerstone');
+    assert.ok(team.identity && team.identity.length > 0, team.id + ' missing identity');
+  });
+  assert.strictEqual(Data.getTeam('bucks').cornerstone, 'Giannis Antetokounmpo');
+  var story = Data.getStory('bucks');
+  assert.ok(story.locker && story.locker.indexOf('Giannis') !== -1, 'Bucks locker story should mention Giannis');
+  assert.ok(story.analyst && story.analyst.indexOf('small-market') !== -1, 'Bucks analyst story is small-market framed');
+  assert.ok(story.reveal && story.reveal.star, 'Bucks should override the star-trade reveal');
+  // teams without a bespoke storyline fall back to an empty object (no crash)
+  assert.deepStrictEqual(Data.getStory('spurs'), {});
+  assert.deepStrictEqual(Data.getStory('nope'), {});
+});
+
+test('Lakers star trade then protect-budget closing move can recover under the line', function () {
+  var team = Data.getTeam('lakers');
+  var star = Data.tradesForTeam(team).filter(function (t) { return t.id === 'star'; })[0];
+  var balance = Data.getRound2('balance');
+  var tax = Data.getPressure('tax_crunch');
+  var chain = Sim.projectChain(team.metrics, star, tax, balance);
+  assert.ok(chain.afterTrade.cash < Sim.TAX_LINE, 'star trade should cross the line');
+  // 45 -28 -5 +18 = 30 → still over, but the move eased it from the post-pressure low
+  assert.ok(chain.final.cash > chain.afterPressure.cash, 'protect-budget should raise Cap Space');
 });
 
 console.log('\n' + passed + ' tests passed.');
